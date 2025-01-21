@@ -1,0 +1,19 @@
+body {
+    background-color: black;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+}
+
+.carousel-container {
+    display: flex;
+    width: 1000px;
+    height: 200px;
+    background-color: grey;
+}
+
+img {
+    height: 100%;
+}
