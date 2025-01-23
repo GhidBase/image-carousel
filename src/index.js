@@ -5,6 +5,8 @@ class ImageCarousel {
         this.slider = document.querySelector(targetSlider);
         this.imgWidths = [];
         this.initializeCarousel();
+        this.currentImage = 1;
+        this.moveToXImage(this.currentImage);
     };
 
     initializeCarousel() {
@@ -26,4 +28,3 @@ class ImageCarousel {
 
 let carousel = new ImageCarousel(".slider");
 window.carousel = carousel;
-carousel.moveToXImage(7)
