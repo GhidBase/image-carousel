@@ -28,6 +28,7 @@ class ImageCarousel {
         this.previousButton.addEventListener("click", () => this.previousImage());
         this.nextButton.addEventListener("click", () => this.nextImage());
         this.renderCircleColors();
+        this.startTimer();
     }
 
     moveToXImage(amountToMove) {
@@ -63,6 +64,11 @@ class ImageCarousel {
             circle.classList.remove("active");
         }
         this.circles[this.currentImage - 1].classList.add("active");
+    }
+
+    startTimer() {
+        setTimeout(() => this.nextImage(), 5000);
+        setTimeout(() => this.startTimer(), 5000);
     }
 }
 
