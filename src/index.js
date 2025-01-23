@@ -5,20 +5,29 @@ class ImageCarousel {
         this.main = document.querySelector(targetMain);
         this.slider = this.main.querySelector(".slider");
         this.previousButton = this.main.querySelector(".previous");
-        this.nextButton = this.main.querySelector(".next")
+        this.nextButton = this.main.querySelector(".next");
+        this.circleBar = this.main.querySelector(".row-two");
         this.imgWidths = [];
-        this.initializeCarousel();
+        this.circles = [];
         this.currentImage = 1;
+        this.initializeCarousel();
         this.moveToXImage(this.currentImage);
     };
 
     initializeCarousel() {
+        let index = 1;
         for (let image of this.slider.children) {
-            this.imgWidths.push(image.offsetWidth)
+            this.imgWidths.push(image.offsetWidth);
+            let newCircle = document.createElement("div");
+            newCircle.classList.add("carousel-circle");
+            this.circleBar.appendChild(newCircle);
+            this.circles.push(newCircle);
+            index++;
         }
 
         this.previousButton.addEventListener("click", () => this.previousImage());
-        this.nextButton.addEventListener("click", () => this.nextImage())
+        this.nextButton.addEventListener("click", () => this.nextImage());
+        this.renderCircleColors();
     }
 
     moveToXImage(amountToMove) {
@@ -37,6 +46,7 @@ class ImageCarousel {
             this.currentImage = 1;
         }
         this.moveToXImage(this.currentImage);
+        this.renderCircleColors();
     }
 
     previousImage() {
@@ -45,6 +55,14 @@ class ImageCarousel {
             this.currentImage = this.imgWidths.length;
         }
         this.moveToXImage(this.currentImage);
+        this.renderCircleColors();
+    }
+
+    renderCircleColors() {
+        for (let circle of this.circles) {
+            circle.classList.remove("active");
+        }
+        this.circles[this.currentImage - 1].classList.add("active");
     }
 }
 
