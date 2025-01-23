@@ -8,10 +8,19 @@ body {
 }
 
 .carousel-container {
-    display: flex;
-    width: 1000px;
+    width: 200px;
     height: 200px;
     background-color: grey;
+    /* position: absolute; */
+    overflow: hidden;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    height: 100%;
+    left: 0px;
+    transform: translateX(50%);
 }
 
 img {
