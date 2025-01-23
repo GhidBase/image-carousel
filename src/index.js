@@ -1,8 +1,11 @@
 import "./css/styles.css";
 
 class ImageCarousel {
-    constructor(targetSlider) {
-        this.slider = document.querySelector(targetSlider);
+    constructor(targetMain) {
+        this.main = document.querySelector(targetMain);
+        this.slider = this.main.querySelector(".slider");
+        this.previousButton = this.main.querySelector(".previous");
+        this.nextButton = this.main.querySelector(".next")
         this.imgWidths = [];
         this.initializeCarousel();
         this.currentImage = 1;
@@ -36,5 +39,5 @@ class ImageCarousel {
     }
 }
 
-let carousel = new ImageCarousel(".slider");
+let carousel = new ImageCarousel(".carousel-main");
 window.carousel = carousel;
