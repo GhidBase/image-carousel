@@ -16,6 +16,9 @@ class ImageCarousel {
         for (let image of this.slider.children) {
             this.imgWidths.push(image.offsetWidth)
         }
+
+        this.previousButton.addEventListener("click", () => this.previousImage());
+        this.nextButton.addEventListener("click", () => this.nextImage())
     }
 
     moveToXImage(amountToMove) {
