@@ -33,11 +33,17 @@ class ImageCarousel {
 
     nextImage() {
         this.currentImage += 1;
+        if (this.currentImage > this.imgWidths.length) {
+            this.currentImage = 1;
+        }
         this.moveToXImage(this.currentImage);
     }
 
     previousImage() {
         this.currentImage -= 1;
+        if (this.currentImage < 1) {
+            this.currentImage = this.imgWidths.length;
+        }
         this.moveToXImage(this.currentImage);
     }
 }
