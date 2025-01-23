@@ -24,6 +24,16 @@ class ImageCarousel {
         amountToMovePx = amountToMovePx - this.imgWidths[amountToMove]/2;
         this.slider.style.left = "-" + amountToMovePx + "px";
     }
+
+    nextImage() {
+        this.currentImage += 1;
+        this.moveToXImage(this.currentImage);
+    }
+
+    previousImage() {
+        this.currentImage -= 1;
+        this.moveToXImage(this.currentImage);
+    }
 }
 
 let carousel = new ImageCarousel(".slider");
